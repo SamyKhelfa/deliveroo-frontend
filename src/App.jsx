@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import logo from "./assets/img/deliveroo-logo.png";
 
 function App() {
   const [data, setData] = useState();
@@ -26,9 +27,19 @@ function App() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <span>{}</span>
-      <br />
-      <ul>{}</ul>
+      <div className="header">
+        <img src={logo} alt="Header" />
+      </div>
+      <div className="description">
+        <span>{data.restaurant.name}</span>
+        <br />
+        <p className="restaurant-description">{data.restaurant.description}</p>
+        <img
+          src={data.restaurant.picture}
+          alt={data.restaurant.name}
+          className="restaurant-image"
+        />
+      </div>
     </div>
   );
 }
