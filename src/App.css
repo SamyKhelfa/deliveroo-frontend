@@ -14,6 +14,12 @@
 
 .description {
   display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Ajoutez cette ligne pour aligner le texte et l'image verticalement */
+}
+
+p {
+  justify-content: column;
 }
 
 .restaurant-image {
@@ -21,8 +27,34 @@
   height: 197px;
   object-fit: cover;
   border-radius: 3%;
+  margin-right: 20px;
 }
 
 .restaurant-description {
   width: 500px;
+}
+
+.description {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-items: center;
+}
+
+.restaurant-info {
+  display: flex;
+  flex-direction: column; /* Organiser les éléments en colonne (verticalement) */
+  margin-right: 20px; /* Ajouter une marge à droite pour un espacement entre le texte et l'image */
+}
+
+.img-meal {
+  width: 130px;
+  height: 130px;
+  border-radius: 3%;
+  object-fit: cover;
+}
+
+.meal {
+  display: flex;
 }

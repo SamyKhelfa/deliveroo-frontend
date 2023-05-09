@@ -31,15 +31,32 @@ function App() {
         <img src={logo} alt="Header" />
       </div>
       <div className="description">
-        <span>{data.restaurant.name}</span>
-        <br />
-        <p className="restaurant-description">{data.restaurant.description}</p>
+        <div className="restaurant-info">
+          <h1 className="restaurant-name">{data.restaurant.name}</h1>
+          <p className="restaurant-description">
+            {data.restaurant.description}
+          </p>
+        </div>
         <img
           src={data.restaurant.picture}
           alt={data.restaurant.name}
           className="restaurant-image"
         />
       </div>
+      {/* Affichage des catégories et des plats */}
+      {data.categories.map((category) => (
+        <div className="category" key={category.name}>
+          <h2>{category.name}</h2>
+          {category.meals.map((meal) => (
+            <div className="meal" key={meal.id}>
+              <h3>{meal.title}</h3>
+              <p className="meal-description">{meal.description}</p>
+              <img src={meal.picture} alt={meal.title} className="img-meal" />
+              <p className="meal-price">{meal.price} €</p>
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
