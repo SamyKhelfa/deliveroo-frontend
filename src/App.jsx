@@ -37,24 +37,37 @@ function App() {
             {data.restaurant.description}
           </p>
         </div>
-        <img
-          src={data.restaurant.picture}
-          alt={data.restaurant.name}
-          className="restaurant-image"
-        />
+        {
+          <img
+            src={data.restaurant.picture}
+            alt={data.restaurant.name}
+            className="restaurant-image"
+          />
+        }
       </div>
       {/* Affichage des catégories et des plats */}
       {data.categories.map((category) => (
         <div className="category" key={category.name}>
           <h2>{category.name}</h2>
-          {category.meals.map((meal) => (
-            <div className="meal" key={meal.id}>
-              <h3>{meal.title}</h3>
-              <p className="meal-description">{meal.description}</p>
-              <img src={meal.picture} alt={meal.title} className="img-meal" />
-              <p className="meal-price">{meal.price} €</p>
-            </div>
-          ))}
+          <div className="meals">
+            {category.meals.map((meal) => (
+              <div className="meal" key={meal.id}>
+                <div className="meal-text">
+                  <h3>{meal.title}</h3>
+                  <p className="meal-price">{meal.price} €</p>
+
+                  {/* <p className="meal-description">{meal.description}</p> */}
+                </div>
+                <div className="meal-img">
+                  <img
+                    src={meal.picture}
+                    alt={meal.title}
+                    className="img-meal"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ))}
     </div>

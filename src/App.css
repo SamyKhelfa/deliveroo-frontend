@@ -3,13 +3,14 @@
   justify-content: left;
   align-items: center;
   width: 100%;
-  height: 150px;
-  background-color: #f5f5f5;
+  height: 60px;
+  border-bottom: gray solid 1px;
 }
 
 .header img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 160px;
+  max-height: 80px;
+  margin-left: 500px;
 }
 
 .description {
@@ -52,29 +53,59 @@
 }
 
 .meal {
+  /* background: slateblue; */
   width: 400px;
   height: 160px;
-  display: inline-flex;
   border: 1px solid #000; /* crée une bordure d'1 pixel, de couleur noire */
   padding: 10px; /* ajoute un peu d'espace entre le contenu de la "boîte" et sa bordure */
   margin-bottom: 10px; /* ajoute un peu d'espace entre chaque "boîte" */
   border-radius: 3%;
   margin: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.meal-text {
+  /* background: lavenderblush; */
+}
+
+.meal-img {
+  background: greenyellow;
+}
+
+.meal-img img {
+  height: 100%;
 }
 
 .meal-description {
   /* Autres styles... */
 
-  overflow: hidden;
+  /* overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: nowrap; */
 }
 
 .category {
-  display: flex;
-  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
   align-items: center;
   grid-auto-flow: dense; /* ajoutez cette ligne */
+  border: red 1px solid;
+}
+
+.meals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: center;
+  grid-auto-flow: dense;
+  margin: auto;
+  max-width: 900px; /* Ajustez cette valeur pour modifier la largeur maximale de votre grille */
+}
+
+h2 {
+  margin-left: 500px;
 }
