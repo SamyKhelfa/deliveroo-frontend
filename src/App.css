@@ -70,3 +70,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.category {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  grid-auto-flow: dense; /* ajoutez cette ligne */
+}
