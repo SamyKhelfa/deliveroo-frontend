@@ -55,7 +55,6 @@
   width: 400px;
   height: 160px;
   display: inline-flex;
-
   border: 1px solid #000; /* crée une bordure d'1 pixel, de couleur noire */
   padding: 10px; /* ajoute un peu d'espace entre le contenu de la "boîte" et sa bordure */
   margin-bottom: 10px; /* ajoute un peu d'espace entre chaque "boîte" */
@@ -72,7 +71,7 @@
 }
 
 .category {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
