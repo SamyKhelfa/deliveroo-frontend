@@ -73,30 +73,6 @@ function App() {
     <span>En cours de chargement...</span>
   ) : (
     <div>
-      <div className="cart">
-        {cart.map((item, index) => (
-          <div key={index}>
-            <p>{item.title}</p>
-            <div className="quantity-control">
-              <button onClick={() => decrementMeal(item)}>-</button>
-              <p>{item.quantity}</p>
-              <button onClick={() => incrementMeal(item)}>+</button>
-            </div>
-            <p>{item.price * item.quantity} €</p>
-          </div>
-        ))}
-        {cart.reduce((acc, item) => acc + item.price * item.quantity, 0) >
-          0 && (
-          <p>
-            Total :{" "}
-            {cart
-              .reduce((acc, item) => acc + item.price * item.quantity, 0)
-              .toFixed(2)}{" "}
-            €
-          </p>
-        )}
-      </div>
-
       <div className="header">
         <img src={logo} alt="Header" />
       </div>
@@ -113,34 +89,59 @@ function App() {
           className="restaurant-image"
         />
       </div>
-      {/* Affichage des catégories et des plats */}
-      {data.categories.map((category) => (
-        <div className="category" key={category.name}>
-          <h2>{category.name}</h2>
-          <div className="meals">
-            {category.meals.map((meal) => (
-              <div
-                className="meal"
-                key={meal.id}
-                onClick={() => addToCart(meal)}
-              >
-                <div className="meal-text">
-                  <h3>{meal.title}</h3>
-                  <p className="meal-price">{meal.price} €</p>
-                  <p className="meal-description">{meal.description}</p>
+      <div className="main-content">
+        {/* Affichage des catégories et des plats */}
+        {data.categories.map((category) => (
+          <div className="category" key={category.name}>
+            <h2>{category.name}</h2>
+            <div className="meals">
+              {category.meals.map((meal) => (
+                <div
+                  className="meal"
+                  key={meal.id}
+                  onClick={() => addToCart(meal)}
+                >
+                  <div className="meal-text">
+                    <h3>{meal.title}</h3>
+                    <p className="meal-price">{meal.price} €</p>
+                    <p className="meal-description">{meal.description}</p>
+                  </div>
+                  <div className="meal-img">
+                    <img
+                      src={meal.picture}
+                      alt={meal.title}
+                      className="img-meal"
+                    />
+                  </div>
                 </div>
-                <div className="meal-img">
-                  <img
-                    src={meal.picture}
-                    alt={meal.title}
-                    className="img-meal"
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        ))}
+        <div className="cart">
+          {cart.map((item, index) => (
+            <div key={index}>
+              <p>{item.title}</p>
+              <div className="quantity-control">
+                <button onClick={() => decrementMeal(item)}>-</button>
+                <p>{item.quantity}</p>
+                <button onClick={() => incrementMeal(item)}>+</button>
+              </div>
+              <p>{item.price * item.quantity} €</p>
+            </div>
+          ))}
+          {cart.reduce((acc, item) => acc + item.price * item.quantity, 0) >
+            0 && (
+            <p>
+              Total :{" "}
+              {cart
+                .reduce((acc, item) => acc + item.price * item.quantity, 0)
+                .toFixed(2)}{" "}
+              €
+            </p>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
